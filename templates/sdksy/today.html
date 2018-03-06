@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block left_nav %}
+    {% include 'sdksy/left_nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>业务管理</span> <span>&gt;</span> <span>今日业务</span></div>
+    </div>
+
+
+    <!--右侧内容开始-->
+    <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+        <div class="record_title" id="record_title">
+            <div class="rdip3"><span>业务名称</span></div>
+            <div class="rdbuy"><span>开始日期</span></div>
+            <div class="rdbuy"><span>结束日期</span></div>
+            <div class="rdbuy"><span>开始时间</span></div>
+            <div class="rdbuy"><span>结束时间</span></div>
+            <div class="rdname"><span>备注</span></div>
+        </div>
+        <div class="rightcon_mid" style="overflow: hidden; width: 1102px;">
+            {% for iteam in business %}
+                <div class="record-list listli_1">
+                    <div class="rdip3"><span>{{ iteam.business_name }}</span></div>
+                    <div class="rdbuy"><span>{{ iteam.business_start_day|date:"Y-m-d" }}</span></div>
+                    <div class="rdbuy"><span>{{ iteam.business_end_day|date:"Y-m-d" }}</span></div>
+                    <div class="rdbuy"><span>{{ iteam.business_start_time|date:"H:i:s" }}</span></div>
+                    <div class="rdbuy"><span>{{ iteam.business_end_time|date:"H:i:s" }}</span></div>
+                    <div class="rdname"><span><center>{{ iteam.business_remark }}</center></span></div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="rightcon_bottom"></div>
+
+    </div>
+{% endblock %}

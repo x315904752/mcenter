@@ -1,0 +1,108 @@
+
+{% extends 'base.html' %}
+{% load markdown_deux_tags %}
+{% block left_nav %}
+    {% include 'procedure/left_nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <div  style="background: #ffffff;position:fixed;width:250px;text-align:center;top:25%;left: 80%">
+{#            <div class="rightcon_title" style="width: 100%">处理流程</div>#}
+        <div class="rightcon_bottom"></div>
+            <div class="rightcon_mid" style="overflow-y:hidden;">
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">第1步：</span>
+                    <span class="left">创建工单</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">第2步：</span>
+                    <span class="left">普通运维负责人审批</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">第3步：</span>
+                    <span class="left">安全运维负责人审批</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">第4步：</span>
+                    <span class="left">用户负责人审批</span>
+                </p>
+            </div>
+            <div class="rightcon_bottom"></div>
+    </div>
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>工单管理</span> <span>&gt;</span> <span>处理事件</span></div>
+    </div>
+
+
+    <!--右侧内容开始-->
+        <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+
+
+        <div class="record_title" id="record_title">
+				<div class="rdbuy"><span>事件编号</span></div>
+                <div class="rdrelati3"><span>事件类别</span></div>
+				<div class="rdrelati3"><span>产生时间</span></div>
+				<div class="rdrelati3"><span>创建人</span></div>
+				<div class="rdrelati3"><span>指派人员</span></div>
+			</div>
+            <div class="rightcon_mid" style="overflow: hidden; width: 1102px;">
+        <div class="record-list listli_1">
+                <div class="rdbuy"><span>{{ get_event.id }}</span></div>
+                <div class="rdrelati3"><span>{{ get_event.event_type }}</span></div>
+                <div class="rdrelati3"><span>{{ get_event.event_start_time }}</span></div>
+                <div class="rdrelati3"><span>{{ get_event.create_people }}</span></div>
+            <div class="rdrelati3"><span>{{ get_event.deal_people }}</span></div>
+        </div>
+
+
+
+                <div class="window_hr"></div>
+                <ul>
+                    <li class="li_title"><strong>事件主题：</strong></li>
+                <li class="li_content">
+                    <pre>{{ get_event.event_theme }}</pre>
+                </li>
+                    <div class="window_hr"></div>
+                <li class="li_title"><strong>事件详情：</strong></li>
+                <li class="li_content">
+                    <pre>{{ get_event.event_description }}</pre>
+                </li>
+            </ul>
+            </div>
+        <div class="rightcon_bottom"></div>
+
+            <div class="height10"></div>
+
+            <div id="record_title" class="record_title">
+				<table cellspacing="0" class="totable">
+					<thead>
+						<tr>
+							<th class="totd0"><span>审批时间</span></th>
+							<th class="totd4"><span>审批人</span></th>
+							<th class="totd5"><span>是否通过</span></th>
+							<th class="totd6"><span>审批意见</span></th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+            <div class="rightcon_mid">
+            <div class="toarea listli_1">
+					<table cellspacing="0" class="totable">
+						<tbody>
+							<tr>
+								<td class="totd0"><div>{{ get_event_verify.verify_time }}</div></td>
+								<td class="totd4"><div>{{ get_event_verify.verify_people }}</div></td>
+								<td class="totd5"><div>{{ get_event_verify.verify }}</div></td>
+								<td class="totd6"><div>{{ get_event_verify.verify_opinion }}</div></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+                </div>
+<div class="rightcon_bottom"></div>
+            <div class="height10"></div>
+
+            <div class="height10"></div>
+        </div>
+{% endblock %}

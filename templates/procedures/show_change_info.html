@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block left_nav %}
+    {% include 'procedures/left_nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>工单管理</span> <span>&gt;</span> <span>查看变更详情</span></div>
+    </div>
+
+    <!--右侧内容开始-->
+        <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+
+                <div class="record_title" id="record_title">
+				<div class="rdbuy"><span>变更编号</span></div>
+                <div class="rdrelati3"><span>变更类型</span></div>
+				<div class="rdrelati3"><span>创建时间</span></div>
+				<div class="rdrelati3"><span>创建人</span></div>
+				<div class="rdrelati3"><span>协助人员</span></div>
+                <div class="rdname"><span>变更主题</span></div>
+        </div>
+        <div class="rightcon_mid" style="overflow: hidden; width: 1102px;">
+        <div class="record-list listli_1">
+                <div class="rdbuy"><span>{{ cur_change.id }}</span></div>
+                <div class="rdrelati3"><span>{{ cur_change.change_type.name }}</span></div>
+                <div class="rdrelati3"><span>{{ cur_change.change_create_time|date:"Y-m-d H:i:s" }}</span></div>
+                <div class="rdrelati3"><span>{{ cur_change.change_create_people }}</span></div>
+                <div class="rdrelati3"><span>
+                    {% for i in cur_change.change_partner.all %}
+                        {{ i.name }}、
+                    {% endfor %}</span></div>
+            <div class="rdname"><span><center>{{ cur_change.change_theme }}</center></span></div>
+        </div>
+
+
+
+                <div class="window_hr"></div>
+                <ul>
+                    <li class="li_title"><strong>关联设备：{{ cur_change.change_device }}</strong></li>
+                    <div class="window_hr"></div>
+                    <li class="li_title"><strong>变更目的：</strong></li>
+                <li class="li_content">
+                    <pre>{{ cur_change.change_target }}</pre>
+                </li>
+                    <div class="window_hr"></div>
+                <li class="li_title"><strong>变更方案：</strong></li>
+                <li class="li_content">
+                    <pre>{{ cur_change.change_plan }}</pre>
+                </li>
+                    <div class="window_hr"></div>
+                <li class="li_title"><strong>回退方案：</strong></li>
+                <li class="li_content"><pre>{{ cur_change.change_back }}</pre></li>
+                <div class="window_hr"></div>
+                <li class="li_title"><strong>变更记录：</strong></li>
+                <li class="li_content">
+                    <pre>{{ cur_change.change_note }}</pre>
+                </li>
+            </ul>
+            </div>
+                <div class="rightcon_bottom"></div>
+<div class="height10"></div>
+        <div class="rightcon_title">处理记录</div>
+            <div class="rightcon_mid">
+            <div class="toarea listli_1">
+					<table cellspacing="0" class="totable">
+						<tbody>
+                            {% for iteam in cur_deal_change %}
+							<tr>
+								<td class="totd0"><div>{{ iteam.change_deal_time|date:"Y-m-d H:i:s" }}</div></td>
+								<td class="totd4"><div>{{ iteam.change_flow }}</div></td>
+								<td class="totd5"><div>
+                                    {% if iteam.change_action == 1 %}
+                                        【{{ iteam.change_people }}】已通过
+                                    {% elif iteam.change_action == 2 %}
+                                        【{{ iteam.change_people }}】已创建
+                                    {% else %}
+                                        【{{ iteam.change_people }}】未通过
+                                    {% endif %}
+                                </div></td>
+                                <td class="totd6"><div>
+                                    {% if iteam.change_note %}
+                                        {{ iteam.change_note }}
+                                    {% else %}
+
+                                    {% endif %}
+                                </div></td>
+							</tr>
+                        {% endfor %}
+						</tbody>
+					</table>
+				</div>
+                </div>
+        <div class="rightcon_bottom"></div>
+        </div>
+{% endblock %}

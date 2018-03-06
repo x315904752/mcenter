@@ -1,0 +1,105 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>设备管理</span> <span>&gt;</span> <span>添加设备</span></div>
+    </div>
+
+
+    <!--右侧内容开始-->
+    <form method="POST">
+        <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+
+            <div class="rightcon_title">基础信息</div>
+            <div class="rightcon_mid">
+						<div class="edit_con">
+							 <div>
+								<label class="label5">*设备名称：</label>{{ uf.name }}
+								<label class="label5">加入分类&nbsp;</label>
+								<div id="div_sel2" style="float:left;">
+									<div class="select_box" style="z-index: 1;  width: 116px;">
+										{{ uf.category_id }}
+									</div>
+								</div>
+								<input id="hide_id" type="hidden" value="93">
+							 </div>
+							 <p class="light">设备名称可以为中文，字母，数字，下划线组成，比如：shanghai_192.168.1.5_osapub.com。
+							 <br>
+							 设备分类是快速搜索服务器的一个重要途径,可以为中文，字母，数字组成。</p>
+							<p id="devname_tips" class="light" style="padding-top:0px;"></p>
+							<div class="clear"></div>
+								<label class="label5">*IP地址：</label>{{ uf.ip }}
+								<span style="margin-left:10px;float:left;padding-top:5px;" id="ip_tips"></span>
+							<div class="clear"></div>
+							<p class="light">IP地址是用来管理的重要标识！</p>
+                            <p id="devname_tips" class="light" style="padding-top:0px;"></p>
+							<div class="clear"></div>
+								<label class="label5">*序列号：</label>{{ uf.code }}
+								<span style="margin-left:10px;float:left;padding-top:5px;" id="ip_tips"></span>
+							<div class="clear"></div>
+							<p class="light">序列号是设备维保的重要标识！</p>
+						</div>
+					</div>
+            <div class="rightcon_bottom"></div>
+            <!--one-->
+
+
+            <div class="rightcon_title">高级选项</div>
+            <div class="rightcon_mid">
+						<div class="edit_con">
+							<label class="label5">所属业务：</label>{{ uf.business_unit }}
+							<div class="clear"></div>
+							<p class="light">可以用一句话介绍该服务器的用途，支撑的业务等,业务描述会作为告警信息的一部分！</p>
+                            <div class="clear"></div>
+                            <label class="label5">设备负责人：</label>{{ uf.userpro }}
+							<div class="clear"></div>
+							<p class="light">可以用一句话介绍该服务器的用途，支撑的业务等,业务描述会作为告警信息的一部分！</p>
+							<div class="clear"></div>
+							<label class="label5">所属机房：</label>
+							<div id="div_sel" style="float:left;">
+								<div class="select_box" style="z-index: 1;  width: 182px;">
+									{{ uf.room }}
+								</div>
+							</div>
+							<label class="label3">或者输入新机房名称：</label><input type="text" class="style15">
+							<div class="clear"></div>
+							<p class="light">托管机房是方便您管理服务器的快速入口和通道！</p>
+							<div class="clear"></div>
+                            <div class="clear2"></div>
+							<label class="label5">上架时间：</label>
+							{{ uf.up_date }}
+							<div class="clear"></div>
+							<p class="light">上架时间用来记录服务器最初上架的时间，方便管理。</p>
+							<div class="clear"></div>
+							<label class="label5">生产日期：</label>{{ uf.production_date }}
+                            <label class="label3">维保期限：</label>{{ uf.guaranteed }}
+							<div class="clear"></div>
+							<p class="light">生产日期用于计算设备的维保期限！</p>
+
+							<div class="clear2"></div>
+							<label class="label5">采购价格：</label>{{ uf.worth }}
+							<div class="clear"></div>
+							<p class="light">采购价格是指在采购设备时所花费的资金，单位：元,填写后可以进行资源预算分析。</p>
+							<div class="clear"></div>
+							<label class="label5">设备详情：</label>{{ uf.remark }}
+							<div class="clear"></div>
+							<p class="light">可用于记录设备详细情况，比如CPU、内存、采购联系人等。</p>
+						</div>
+					</div>
+            <div class="rightcon_bottom"></div>
+
+
+
+            <div class="height10"></div>
+            <div class="edit_submit">
+			    <div class="btn_green" style=""><a id="ping-save"><input class="spanL" style="border:none" type="submit" value="添加设备" /><span class="spanR"></span></a></div>
+			    <div style="" class="btn_cancel"><a href="javascript:history.go(-1)"><span class="spanL">取消返回</span><span class="spanR"></span></a></div>
+		    </div>
+
+        </div>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0f923fba-deff-4b01-910e-bf29d87ed0c8" name="mcenter" url="http://10.254.30.253">
+        <fileTransfer host="10.254.30.253" port="22" rootFolder="/home/MCenter/xulei" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

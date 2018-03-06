@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block left_nav %}
+    {% include 'procedures/left_nav.html' %}
+{% endblock %}
+
+{% block content %}
+<!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>工单管理</span> <span>&gt;</span> <span>查看事件详情</span></div>
+    </div>
+
+    <!--右侧内容开始-->
+        <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+
+
+        <div class="record_title" id="record_title">
+				<div class="rdbuy"><span>事件编号</span></div>
+                <div class="rdrelati3"><span>事件类别</span></div>
+				<div class="rdrelati3"><span>产生时间</span></div>
+				<div class="rdrelati3"><span>创建人</span></div>
+				<div class="rdrelati3"><span>指派人员</span></div>
+                <div class="rdrelati3"><span>关联设备</span></div>
+                <div class="rdrelati3"><span>当前状态</span></div>
+        </div>
+        <div class="rightcon_mid" style="overflow: hidden; width: 1102px;">
+        <div class="record-list listli_1">
+                <div class="rdbuy"><span>{{ cur_event.id }}</span></div>
+                <div class="rdrelati3"><span>{{ cur_event.event_type }}</span></div>
+                <div class="rdrelati3"><span>{{ cur_event.event_start_time|date:"Y-m-d H:i:s" }}</span></div>
+                <div class="rdrelati3"><span>{{ cur_event.event_create_people }}</span></div>
+                <div class="rdrelati3"><span>{{ cur_event.event_deal_people }}</span></div>
+                <div class="rdrelati3"><span>{{ cur_event.device }}</span></div>
+                <div class="rdrelati3"><span>
+                    {% if cur_event.event_flag == 0 %}
+                    已删除
+                    {% elif cur_event.event_flag == 2 %}
+                    处理中
+                    {% elif cur_event.event_flag == 3 %}
+                    已完成
+                    {% elif cur_event.event_flag == 4 %}
+                    待验证
+                    {% endif %}
+                </span></div>
+        </div>
+
+
+
+                <div class="window_hr"></div>
+                <ul>
+                    <li class="li_title"><strong>事件主题：{{ cur_event.event_theme }}</strong></li>
+                    <div class="window_hr"></div>
+                <li class="li_title"><strong>事件详情：</strong></li>
+                <li class="li_content">
+                    <pre>{{ cur_event.event_description }}</pre>
+                </li>
+                    <div class="window_hr"></div>
+            </ul>
+            </div>
+        <div class="rightcon_bottom"></div>
+
+            <div class="height10"></div>
+
+                <div class="rightcon_title">处理信息</div>
+                <div class="rightcon_mid">
+                <li class="li_title"><strong></strong></li>
+                {% for iteam in cur_deal_event %}
+                    <div class="left">
+                    <label class="label_c1">时间：{{ iteam.event_deal_time|date:"Y-m-d H:i:s" }}</label>
+                    <label class="label_c1">处理人：{{ iteam.event_people }}</label>
+                    <label class="label_c1">{{ iteam.event_flow }}：
+                        {% if iteam.event_action == 2 %}
+                        已创建
+                        {% elif iteam.event_action == 1 %}
+                        已完成
+                        {% else %}
+                        未完成
+                        {% endif %}
+                    </label>
+
+                    </div>
+                    <div class="clear"></div>
+                    {% if iteam.event_note %}
+                    <li class="li_content">
+                        <pre>{{ iteam.event_note }}</pre>
+                    </li>
+                    {% endif %}
+                    <div class="window_hr"></div>
+                {% endfor %}
+                </div>
+
+        <div class="rightcon_bottom"></div>
+
+            <div class="height10"></div>
+        </div>
+{% endblock %}

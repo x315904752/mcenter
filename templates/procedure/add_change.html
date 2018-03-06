@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block left_nav %}
+    {% include 'procedure/left_nav.html' %}
+{% endblock %}
+
+
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>工单管理</span> <span>&gt;</span> <span>新建变更</span></div>
+    </div>
+
+    <!--右侧内容开始-->
+    <form method="POST">
+        <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+
+
+            <div class="rightcon_title">申请人信息</div>
+            <div class="rightcon_mid" style="overflow-y:hidden;">
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">申请人姓名：</span>
+                    <span class="left">{{ userinfo.name }}</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">申请人手机：</span>
+                    <span class="left">{{ userinfo.mobile }}</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">申请人邮箱：</span>
+                    <span class="left">{{ userinfo.email }}</span>
+                </p>
+            </div>
+            <div class="rightcon_bottom"></div>
+
+
+            <div class="rightcon_title">基本信息</div>
+            <div class="rightcon_mid">
+                <label class="label14"><span class="red">*</span>变更类型:</label>
+                    <div class="left20">{{ uf.change_type }}</div>
+                <div class="height10"></div>
+                <div class="window_hr"></div>
+                <p class="clear"></p>
+                <label class="label14"><span class="red">*</span>参与人员:</label>
+                <div class="left20">{{ uf.partner }}</div>
+                <div class="height10"><input type="hidden" value="" id="itemip"></div>
+                <div class="window_hr"></div>
+                <p class="clear"></p>
+                <p class="clear"></p>
+                <label class="label14"><span class="red"></span>关联设备:</label>
+                    <div class="left20">{{ uf.device }}</div>
+                <div class="height10"></div>
+                <div class="left105" id="show_resultip"></div>
+            </div>
+            <div class="rightcon_bottom"></div>
+
+
+            <div class="rightcon_title">变更信息</div>
+                <div class="rightcon_mid">
+                    <label class="label14"><span class="red">*</span>变更主题：</label>
+                    <div class="left20">{{ uf.change_theme }}</div>
+                    <div class="height10"></div>
+                </div>
+                <div class="rightcon_mid">
+                    <label class="label14"><span class="red"></span>变更目的：</label>
+                    <div class="left20">{{ uf.change_target }}</div>
+                    <div class="height10"></div>
+                </div>
+                <div class="rightcon_mid">
+                    <label class="label14"><span class="red"></span>变更计划：</label>
+                    <div class="left20">{{ uf.change_plan }}</div>
+                    <div class="height10"></div>
+                </div>
+                <div class="rightcon_mid">
+                    <label class="label14"><span class="red"></span>回退计划：</label>
+                    <div class="left20">{{ uf.change_back }}</div>
+                    <div class="height10"></div></div>
+                <div class="rightcon_mid">
+                    <label class="label14"><span class="red"></span>变更记录：</label>
+                    <div class="left20">{{ uf.change_note }}</div>
+                    <div class="height10"></div>
+                </div>
+            <div class="rightcon_bottom"></div>
+
+            <div class="edit_submit">
+			    <div class="btn_green" style=""><a id="ping-save"><input class="spanL" style="border:none" type="submit" value="提交变更" /><span class="spanR"></span></a></div>
+			    <div style="" class="btn_cancel"><a href="javascript:history.go(-1)"><span class="spanL">取消返回</span><span class="spanR"></span></a></div>
+		    </div>
+
+        </div>
+    </form>
+
+{% endblock %}

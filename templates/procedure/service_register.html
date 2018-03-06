@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block left_nav %}
+    {% include 'procedure/left_nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>工单管理</span> <span>&gt;</span> <span>服务登记</span></div>
+    </div>
+
+
+    <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+        <div class="rightcon_title">服务登记</div>
+        <div class="rightcon_mid">
+					   <ul>
+						<li class="li_title"><a href="/procedure/add_event/">新增事件</a></li>
+						<li class="li_content">新增事件，事件管理的目标是在不影响业务的情况下，尽可能快速的恢复服务，从而保证最佳的效率和服务的可持续性。
+						</li>
+						<li class="li_title"><a href="/procedure/add_change/">新增变更</a></li>
+						<li class="li_content">新增变更，以受控的方式，确保所有变更得到评估、批准、实施和评审。
+						</li>
+{#						<li class="li_title"><a href="/procedure/add_task/">新增配置</a></li>#}
+{#						<li class="li_content">新增配置，配置管理的目标是定义和控制服务与基础设施的部件，并保持准确的配置信息。#}
+{#						</li>#}
+{#						<li class="li_title"><a href="/procedure/add_question/">新增问题</a></li>#}
+{#						<li class="li_content">新增问题，问题管理是调查基础设施和所有可用信息，来确定引起事件发生的真正潜在原因，以及提供的服务中可能存在的故障。#}
+{#						</li>#}
+{#						<li class="li_title"><a href="/procedure/add_release/">新增发布</a></li>#}
+{#						<li class="li_content">新增发布，发布管理的目标是交付、分发并跟踪一个或多个变更。</li>#}
+						</li>
+					  </ul>
+				</div>
+        <div class="rightcon_bottom"></div>
+    </div>
+{% endblock %}

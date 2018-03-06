@@ -1,0 +1,20 @@
+<div class="userbar">
+    <div class="container">
+        <div class="welcome">您好，<span>{{ userinfo.name }}</span>欢迎登录赛尔运维管理平台</div>
+        <div class="user_info">
+            <ul>
+                <li class="creat_moniter"><a href="/procedures/service_register/"><i class="icon_add_arrow"></i><span>登记工单</span></a></li>
+                <li class="alarm">
+                    <a href="/procedures/need_deal/"><span>待处理工单</span></a>
+                    {% if all_need_deal  %}
+                        <div class="alarm_notice" id="alarm-content-notice" style="">
+                            <a class="alarm_content" href="/procedures/need_deal/"><span>您有<i id="ialarm-content-num">{{ all_need_deal }}</i>条待处理工单，请查看！</span></a>
+                            <a class="close" id="alarm-content-close"><span></span></a>
+                        </div>
+                    {% endif %}
+                </li>
+                <li class="quit"><a href="/account/logout/"><span>退出</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MCenter运维管理平台</title>
+    <link rel="stylesheet" href="/static/css/osa.css" type="text/css" />
+    <script src="/static/script/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div style="position:fixed;width:100%;">
+    <!--蓝色导航开始-->
+    <div class="userbar">
+        <div class="container">
+            <div class="welcome">您好，<span>{{ userinfo.name }}</span>欢迎登陆MCenter运维管理平台</div>
+            <div class="user_info">
+                <ul>
+                    <li class="creat_moniter"><a href="/account/change_info/"></i><span>个人中心</span></a></li>
+                    <li class="alarm">
+                        <a href="/procedure/needdeal/"><span>待处理事件</span></a>
+{#                        <div class="alarm_notice" id="alarm-content-notice" style="">#}
+{#                            <a class="alarm_content" href="index.php?c=alarm&amp;a=itemalarmd"><span>您有<i id="ialarm-content-num">2</i>条待处理事件，请查看！</span></a>#}
+{#                            <a class="close" id="alarm-content-close"><span>X</span></a>#}
+{#                        </div>#}
+                    </li>
+                    <li class="quit"><a href="/account/logout/"><span>退出</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--蓝色导航结束-->
+
+
+
+    <!--白色导航开始-->
+{#    <div class="navibar">#}
+{#        <div class="logo">MCenter监控管理</div>#}
+{#            <div class="nav">#}
+{#                <a href="/index/" class=""><span>首页</span></a>#}
+{#                <a href="/monitor/index/" class="device "><span>监控中心</span></a>#}
+{#                <a href="/alarm/index/" class="alarm "><span>告警中心</span></a>#}
+{#                <a href="/procedure/service_register/" class="monitor "><span>工单管理</span></a>#}
+{#                <a href="/cmdb/show_device/" class="alarm "><span>设备管理</span></a>#}
+{#                <a href="/report/index/" class="account "><span>报表管理</span></a>#}
+{#                <a href="/knowledge/index/" class="filecenter "><span>知识库</span></a>#}
+{#            </div>#}
+{#    </div>#}
+    <!--白色导航开始-->
+    </div>
+
+
+
+
+
+
+    <div class="main" style="margin-top:40px">
+        <!--左侧菜单开始-->
+		<div class="menu2" style="position:fixed">
+            <p class="height10"></p>
+            <p>
+                <a class="menu2_title"><span>个人中心</span></a>
+                <a href="/account/change_info/" class="menu2_title_sub curr_sub"><span>资料查看</span></a>
+{#                <a href="/procedure/show_procedure/" class="menu2_title_sub"><span>工单综合查询</span></a>#}
+                <a href="/account/change_info/" class="menu2_title_sub"><span>密码修改</span></a>
+{#                <a href="index.php?c=snmp&amp;a=snmpset" class="menu2_title_sub"><span>投诉管理</span></a>#}
+            </p>
+            <p class="height10"></p>
+            <p class="height10"></p>
+        </div>
+        <!--左侧菜单结束-->
+
+
+
+        <!--右侧内容开始-->
+        <div class="mainright" id="mainright" style="width: 1128px;margin-left: 178px">
+        {% block content %}
+        这里是首页，欢迎光临
+        {% endblock %}
+        <!--右侧内容结束-->
+        </div>
+
+
+
+        <!--分割线-->
+        <div class="hr" style="bottom:42px; width: 100%; position:fixed"></div>
+
+
+        <div class="footer" style="bottom:-10px; width: 100%; position:fixed;background: #fcfbfb; height: 52px">
+            <p>
+                <span>版权所有：赛尔网络有限公司</span>
+                <span>©2016-2017</span>
+                <span>赛尔网络（技术支持）</span>
+            </p>
+        </div>
+</div>
+</body>
+
+
+<script type="text/javascript" src="/static/script/jquery.min.js"></script>
+<script type="text/javascript">
+$('div').on('click',function(){
+    $(this).addClass('curr');
+});
+</script>
+</html>

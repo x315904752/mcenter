@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block left_nav %}
+    {% include 'sdksy/left_nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>业务管理</span> <span>&gt;</span> <span>明日业务</span></div>
+    </div>
+
+
+    <!--右侧内容开始-->
+    <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+        <div class="record_title" id="record_title">
+            <div class="rdrelati3"><span>业务名称</span></div>
+            <div class="rdrelati3"><span>开始日期</span></div>
+            <div class="rdrelati3"><span>结束日期</span></div>
+            <div class="rdrelati3"><span>开始时间</span></div>
+            <div class="rdrelati3"><span>结束时间</span></div>
+            <div class="rdname"><span>备注</span></div>
+        </div>
+    </div>
+{% endblock %}

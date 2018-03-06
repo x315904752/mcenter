@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block left_nav %}
+    {% include 'procedures/left_nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>工单管理</span> <span>&gt;</span> <span>处理中的工单</span></div>
+    </div>
+
+
+    <!--右侧内容开始-->
+        <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+
+
+            <div class="record_title">
+                <div class="rdbuy"><span>关联设备</span></div>
+                <div class="rdip3"><span>变更主题</span></div>
+                <div class="rdrelati3"><span>类型</span></div>
+                <div class="rdrelati3"><span>创建人</span></div>
+                <div class="rdip3"><span>当前进度</span></div>
+                <div class="rdrelati3"><span>创建时间</span></div>
+            </div>
+
+            <div class="rightcon_mid" style="overflow: hidden; width: 1102px;">
+                {% for iteam in customer %}
+                <div class="record-list listli_1">
+                <div class="rdbuy">
+                    <span>
+                        <a title="{{ iteam.change_device }}" href="/procedures/show_change_info/{{ iteam.id }}">{% if iteam.change_device %}{{ iteam.change_device }}{% endif %}</a>
+                    </span>
+                </div>
+                <div class="rdip3"><span><a title="{{ iteam.change_theme }}" href="/procedures/show_change_info/{{ iteam.id }}">{{ iteam.change_theme }}</a></span></div>
+                <div class="rdrelati3"><span>{{ iteam.change_type }}</span></div>
+                <div class="rdrelati3"><span>{{ iteam.change_create_people }}</span></div>
+                <div class="rdip3">
+                    <span>
+                        【{{ iteam.change_flow.flow_name }}】完成
+                    </span>
+                </div>
+                <div class="rdrelati3"><span>{{ iteam.change_create_time|date:"Y-m-d H:i:s" }}</span></div>
+                </div>
+                {% endfor %}
+            </div>
+        <div class="rightcon_bottom"></div>
+        <div class="page">
+	        <div class="pageR">
+                <span>总记录<i>{{ get_change_num }}</i>条</span>
+                <span>共<i>{{ page_num }}</i>页</span>
+                {% if customer.has_previous %}
+                    <a href="?page={{ customer.previous_page_number }}" class="page_off">上页</a>
+                {% endif %}
+                {% for pg in customer.paginator.page_range %}
+                    {% if customer.number == pg %}
+                        <a href="?page={{ pg }}" class="page_on">{{ pg }}</a>
+                    {% else %}
+                        <a href="?page={{ pg }}" class="page_off">{{ pg }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if customer.has_next %}
+                    <a href="?page={{ customer.next_page_number }}" class="page_off">下页</a>
+                {% endif %}
+            </div>
+        </div>
+        </div>
+{% endblock %}

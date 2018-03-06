@@ -1,0 +1,27 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>监控中心</span> <span>&gt;</span> <span>业务访问状态</span></div>
+    </div>
+
+
+    <!--右侧内容开始-->
+        <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+
+
+
+            <div class="rightcon_title">业务访问状态</div>
+
+            <div class="rightcon_mid" style="overflow: hidden; height:530px;width: 1102px;">
+                <div style="height:585px;width: 100%;margin:-55px -50px 0px 0px;">
+                    <iframe src="http://show.weilairen.top:8000/dashboard/db/05-wang-zhan-ke-yong-xing-jian-ce?orgId=3&theme=light" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+            <div class="rightcon_bottom"></div>
+        </div>
+
+{% endblock %}

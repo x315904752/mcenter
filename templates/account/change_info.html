@@ -1,0 +1,57 @@
+
+
+{% extends 'account/base.html' %}
+
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>个人中心</span></div>
+    </div>
+
+
+    <!--右侧内容开始-->
+        <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+
+
+
+            <div class="rightcon_title">个人资料</div>
+
+            <div class="rightcon_mid" style="overflow: hidden;">
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">姓名：</span>
+                    <span class="left">{{ userinfo.name }}</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">手机：</span>
+                    <span class="left">{{ userinfo.mobile }}</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">邮箱：</span>
+                    <span class="left">{{ userinfo.email }}</span>
+                </p>
+            </div>
+            <div class="rightcon_bottom"></div>
+
+            <form method="POST">
+            <div class="rightcon_title">密码修改</div>
+
+            <div class="rightcon_mid" style="overflow: hidden;">
+                <p style="padding:5px 10px;">
+                    <span class="left">{{ uf.old_password }}</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left">{{ error }}</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left">{{ uf.password }}</span>
+                </p>
+            </div>
+            <div class="rightcon_bottom"></div>
+            <div class="edit_submit">
+			    <div class="btn_green" style=""><a id="ping-save"><input class="spanL" style="border:none" type="submit" value="提交信息" /><span class="spanR"></span></a></div>
+			    <div style="" class="btn_cancel"><a href="javascript:history.go(-1)"><span class="spanL">取消返回</span><span class="spanR"></span></a></div>
+		    </div>
+            </form>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>赛尔运维管理平台</title>
+        <link rel="stylesheet" href="/static/css/osa.css" type="text/css" />
+        <!-- 引入样式 -->
+        <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+        <!-- 引入组件库 -->
+        <script src="//unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+        <script src="/static/script/jquery.min.js" type="text/javascript"></script>
+        <script src="/static/script/vue.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/static/script/echarts.min.js"></script>
+    </head>
+
+    <body>
+        <div style="position:fixed;width:100%;">
+
+            {% include 'blue_nav.html' %}
+
+            {% include 'white_nav.html' %}
+
+        </div>
+
+
+
+        <div class="main" style="margin-top:95px">
+            <div class="menu2" style="position:fixed">
+                {% block left_nav %}
+                    功能开发中，敬请期待！
+                {% endblock %}
+                <el-switch
+  v-model="value2"
+  active-color="#13ce66"
+  inactive-color="#ff4949">
+</el-switch>
+
+<script>
+  export default {
+    data() {
+      return {
+        value1: true,
+        value2: true
+      }
+    }
+  };
+</script>
+            </div>
+
+
+            <!--右侧内容开始-->
+            <div class="mainright" id="mainright" style="width: 1128px;margin-left: 178px">
+                {% block content %}
+                    功能开发中，敬请期待！
+                {% endblock %}
+            </div>
+            <!--右侧内容结束-->
+
+            {% include 'bottom.html' %}
+
+        </div>
+    </body>
+</html>

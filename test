@@ -1,0 +1,5 @@
+下行：{sdedu-zabbix-proxy1:net.if.in[gre1].last(0)}
+上行：{sdedu-zabbix-proxy1:net.if.in[gre1].last(0)}
+速率：{sdedu-zabbix-proxy1:net.if.in[gre1].last(0)}
+
+sdedu-zabbix-proxy1

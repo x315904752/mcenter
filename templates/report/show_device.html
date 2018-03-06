@@ -1,0 +1,84 @@
+
+
+{% extends 'cmdb/../cmdb/base.html' %}
+
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>设备管理</span> <span>&gt;</span> <span>设备查询</span></div>
+    </div>
+
+
+    <!--右侧内容开始-->
+        <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+            <div id="details_1" class="details_control">
+				<div class="height10"></div>
+				<div class="action">
+					<div class="height10"></div>
+					<div class="btn-toolbar left">
+						<div class="btn_green1 left" id="record-add"><a href="/cmdb/add_device/" class=""><span class="spanL">新增设备</span><span class="spanR"></span></a></div>
+					</div>
+					<div class="search-bar right" id="search" style="position:relative;">
+						<input type="text" class="record_search input2" id="record_search" value=""><label id="more_select">更多高级选项》</label>
+					</div>
+				</div>
+				<div class="height10"></div>
+				<div class="morecond_div" id="morecond_div" style="display: none;">
+					<div class="height10"></div>
+					<div class="label100">设备类型:</div>
+					<div class="href1"><a class="type-select">全部类型</a></div>
+										<div class="href1 "><a class="type-select">服务器</a></div>
+										<div class="href1"><a href="#">更多类型&gt;&gt;</a></div>
+
+					<div class="clear"></div>
+					<div class="label100">热门标签:</div>
+					<div class="href1"><a class="label-select">所有标签</a></div>
+										<div class="href1"><a class="label-select">可用于记录设备详细情况，比如CPU、内存、采购联系人等。可用于记录设备详细情况，比如CPU、内存、采购联系人等。</a></div>
+										<div class="clear"></div>
+					<div class="label100">己选择条件:</div>
+					<div class="href2"><a class="type-selected">全部类型</a></div>
+					<div class="href2"><a class="label-selected">所有标签</a></div>
+					<div class="recondi"><a class="clear-select">[清除所有条件]</a></div>
+					<div class="height10"></div>
+				</div>
+			</div>
+
+
+            <div class="record_title" style="height: 100%;">
+                <div class="rdname3"><span>设备名称</span></div>
+                <div class="rdname3"><span>设备类型</span></div>
+                <div class="rdtype3"><span>IP地址</span></div>
+                <div class="rdip3"><span>所属机房</span></div>
+                <div class="rdtype3"><span>当前状态</span></div>
+                <div class="rdtype3"><span>操作</span></div>
+            </div>
+
+            <div class="rightcon_mid" style="overflow: hidden; width: 1102px;">
+                <div class="list-unit">
+                {% for iteam in asset %}
+                <div class="record-list listli_1">
+                <div class="rdname3">
+                    <span>
+                        <a title="图形中心" href="index.php?c=paint&amp;a=distribution&amp;itemid=122&amp;type=custom ">{{ iteam.name }}</a>
+                    </span>
+                </div>
+                <div class="rdname3"><span>{{ iteam.category_id.name }}</span></div>
+                <div class="rdtype3"><span>{{ iteam.ip }}</span></div>
+                <div class="rdip3"><span>{{ iteam.room.name }}</span></div>
+                <div class="rdtype3"><span>正常</span></div>
+{#                <div class="rdtype3"><span>100%</span></div>#}
+                <div class="rdaction">
+							<div class="actdes">
+								<a title="图形中心" href="index.php?c=paint&amp;a=serverable&amp;ipid=97">&nbsp;</a>
+							</div>
+							<div class="actprompt0">
+								<a class="list-msg" title="补充信息">&nbsp;</a>
+							</div>
+							<div class="actedit"><a title="编辑" href="index.php?c=device&amp;a=editindex&amp;id=94">EDIT</a></div>
+						</div>
+                </div>
+                {% endfor %}
+                </div>
+        </div>
+
+{% endblock %}

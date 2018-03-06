@@ -1,0 +1,118 @@
+#more_select{cursor:pointer;}
+#more_select:hover{color:rgb(31,132,227);}
+.none{display:none;}
+.list-add-exit{
+	background: url("../images/icon.gif") no-repeat scroll -70px -690px transparent;
+    color: #FFFFFF;
+    display: block;
+    height: 31px;
+    line-height: 31px;
+    text-indent: -9999px;
+    width: 51px;
+    cursor:pointer;
+}
+.list-add-exit:hover{
+	background: url("../images/icon.gif") no-repeat scroll -70px -721px transparent;
+    color: #FFFFFF;
+    display: block;
+    height: 31px;
+    line-height: 31px;
+    text-indent: -9999px;
+    width: 51px;
+    cursor:pointer;
+}
+.list-edit-exit{
+	background: url("../images/icon.gif") no-repeat scroll -70px -690px transparent;
+    color: #FFFFFF;
+    display: block;
+    height: 31px;
+    line-height: 31px;
+    text-indent: -9999px;
+    width: 51px;
+    cursor:pointer;
+}
+.list-edit-exit:hover{
+	background: url("../images/icon.gif") no-repeat scroll -70px -721px transparent;
+    color: #FFFFFF;
+    display: block;
+    height: 31px;
+    line-height: 31px;
+    text-indent: -9999px;
+    width: 51px;
+    cursor:pointer;
+}
+
+.list-add-save{
+	background: url("../images/icon.gif") no-repeat scroll 0 -690px transparent;
+    color: #FFFFFF;
+    display: block;
+    height: 31px;
+    line-height: 31px;
+    text-indent: -9999px;
+    width: 51px;
+    cursor:pointer;
+}
+.list-add-save:hover{
+	background: url("../images/icon.gif") no-repeat scroll -0px -721px transparent;
+    color: #FFFFFF;
+    display: block;
+    height: 31px;
+    line-height: 31px;
+    text-indent: -9999px;
+    width: 51px;
+    cursor:pointer;
+}
+.list-edit-save{
+	background: url("../images/icon.gif") no-repeat scroll 0 -690px transparent;
+    color: #FFFFFF;
+    display: block;
+    height: 31px;
+    line-height: 31px;
+    text-indent: -9999px;
+    width: 51px;
+    cursor:pointer;
+}
+.list-edit-save:hover{
+	background: url("../images/icon.gif") no-repeat scroll -0px -721px transparent;
+    color: #FFFFFF;
+    display: block;
+    height: 31px;
+    line-height: 31px;
+    text-indent: -9999px;
+    width: 51px;
+    cursor:pointer;
+}
+/** 解决 overflow:hidden 问题 ***/
+.list-unit{height:42px;}
+
+/** select 特殊效果css **/
+/*select_input*/
+.select_box{background:url(../images/select_input.gif) repeat-x right 0;border:1px solid #CCCCCC;width:100%;height:100%;}
+.tag_select{background:url(../images/sel_1.gif) no-repeat right center;width:100%;border:none;}
+
+.tag_select_1{background:url(../images/sel_1.gif) no-repeat right center;width:100%;border:none;}
+.tag_select_2{background:url(../images/sel_1.gif) no-repeat right center;width:100%;border:none;}
+.tag_hover{background:url(../images/sel_2.gif) no-repeat right center;width:100%;border:none;}
+.tag_options{position: absolute; z-index:999;border:1px solid #ccc;background:#fff;left:-1px;top:29px;}
+.tag_options li{height:24px;line-height:24px;margin:1px;display:block;cursor: pointer;text-align:left;}
+.open_selected{background:#f8b551;color:#333;}
+.open{background:#fff;text-decoration:none;color:#333;}
+.open:hover{background:#f8b551;line-height:24px;color:#fff;}
+.open_hover{background:#f8b551;line-height:24px;color:#fff;}
+
+
+#options_server{width:116px;}
+.ser_sel{float:left;}
+.ser_sel input{height:28px;height:28px;}
+
+#options_page{width:50px;text-indent:5px;}
+.page_sel{width:50px;float:left;}
+.page_sel input{height:22px;height:22px;text-indent:5px;}
+
+.tag_input{cursor:pointer;}
+
+
+/*************** checkbox style*********************/
+.graph-checkbox{
+	line-height:23px;position:relative;top:9px;
+}

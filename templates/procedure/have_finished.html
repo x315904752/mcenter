@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block left_nav %}
+    {% include 'procedure/left_nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>工单管理</span> <span>&gt;</span> <span>工单综合查询</span></div>
+    </div>
+
+
+    <!--右侧内容开始-->
+        <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+{#            <div id="details_1" class="details_control">#}
+{#				<div class="height10"></div>#}
+{#				<div class="action">#}
+{#					<div class="height10"></div>#}
+{#					<div class="btn-toolbar left">#}
+{#						<div class="btn_green1 left" id="record-add"><a href="/procedure/service_register/" class=""><span class="spanL">新增事件</span><span class="spanR"></span></a></div>#}
+{#					</div>#}
+{#					<div class="search-bar right" id="search" style="position:relative;">#}
+{#						<input type="text" class="record_search input2" id="record_search" value=""><label id="more_select">更多高级选项》</label>#}
+{#					</div>#}
+{#				</div>#}
+{#				<div class="height10"></div>#}
+{#				<div class="morecond_div" id="morecond_div" style="display: none;">#}
+{#					<div class="height10"></div>#}
+{#					<div class="label100">设备类型:</div>#}
+{#					<div class="href1"><a class="type-select">全部类型</a></div>#}
+{#										<div class="href1 "><a class="type-select">服务器</a></div>#}
+{#										<div class="href1"><a href="#">更多类型&gt;&gt;</a></div>#}
+{##}
+{#					<div class="clear"></div>#}
+{#					<div class="label100">热门标签:</div>#}
+{#					<div class="href1"><a class="label-select">所有标签</a></div>#}
+{#										<div class="href1"><a class="label-select">可用于记录设备详细情况，比如CPU、内存、采购联系人等。可用于记录设备详细情况，比如CPU、内存、采购联系人等。</a></div>#}
+{#										<div class="clear"></div>#}
+{#					<div class="label100">己选择条件:</div>#}
+{#					<div class="href2"><a class="type-selected">全部类型</a></div>#}
+{#					<div class="href2"><a class="label-selected">所有标签</a></div>#}
+{#					<div class="recondi"><a class="clear-select">[清除所有条件]</a></div>#}
+{#					<div class="height10"></div>#}
+{#				</div>#}
+{#			</div>#}
+
+
+            <div class="record_title">
+                <div class="rdbuy"><span>工单编号</span></div>
+                <div class="rdip3"><span>工单主题</span></div>
+                <div class="rdrelati3"><span>类型</span></div>
+                <div class="rdrelati3"><span>创建人</span></div>
+                <div class="rdip3"><span>状态</span></div>
+                <div class="rdrelati3"><span>创建时间</span></div>
+            </div>
+
+            <div class="rightcon_mid" style="overflow: hidden; width: 1102px;">
+                {% for iteam in change_list %}
+                <div class="record-list listli_1">
+                <div class="rdbuy">
+                    <span>
+                        <a title="图形中心" href="/procedure/show_change_info/{{ iteam.id }}">{{ iteam.id }}</a>
+                    </span>
+                </div>
+                <div class="rdip3"><span><a title="图形中心" href="/procedure/show_change_info/{{ iteam.id }}">{{ iteam.change_theme }}</a></span></div>
+                <div class="rdrelati3"><span>{{ iteam.change_type }}</span></div>
+                <div class="rdrelati3"><span>{{ iteam.create_people }}</span></div>
+                <div class="rdip3"><span>{{ iteam.status }}</span></div>
+                <div class="rdrelati3"><span>{{ iteam.create_time }}</span></div>
+                </div>
+                {% endfor %}
+        </div>
+        <div class="rightcon_bottom"></div>
+        </div>
+{% endblock %}

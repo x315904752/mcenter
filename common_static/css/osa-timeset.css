@@ -1,0 +1,14 @@
+.tanbox{background:url(../images/beij.png); border-radius:4px 4px 4px 4px; padding:5px; width:315px; margin:0 auto;position:absolute;}
+.tanbox-con{background:#f6f6f6; width:100%; height:auto; overflow:hidden; display:block;}
+.number{ color:#d02d2d; font-size:18px; font-family:"Times New Roman", Times, serif;}
+.tan_h1{ background:url(../images/th1bg.gif) repeat-x; height:42px; display:block; overflow:hidden; line-height:40px; padding-left:15px;}
+.tan_h1 span{ font-size:15px; color:#305995;}
+.tanbox ul{ display:block; margin-top:6px; padding:0 10px;}
+.tanbox ul li{ display:block;height:30px; line-height:30px;text-align:left; font-size:13px; border-bottom:1px #dedede  dashed; padding:0 20px;}
+.tanbox ul li dl{ display:block; float:left; height:26px; width:auto; line-height:26px;}
+.tanbox ul li dt{ display:block; float:left;}
+.tanbox ul li dd{ display:block; float:left; text-indent:10px;}
+.tan_z1{ display:block; height:100px; background:#e8e8e8; padding:10px 20px 0 20px;}
+.tanbt{ border:none; color:#fff;height:41px; width:124px; line-height:41px; font-size:15px; font-weight:bold; background:url(../images/tanbt.gif) no-repeat; float:right;}
+.tan_tx{ font-size:13px; line-height:28px; height:auto; overflow:hidden; padding-top:10px; _padding-top:0px; color:#333333;}
+#tan_tx2 a{ color:#04a2df; font-size:15px; text-decoration:underline;}

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block left_nav %}
+    {% include 'procedures/left_nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>工单管理</span> <span>&gt;</span> <span>事件列表</span></div>
+    </div>
+
+
+    <!--右侧内容开始-->
+        <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+            <div id="details_1" class="details_control">
+				<div class="height10"></div>
+				<div class="morecond_div" id="morecond_div" style="display: none;">
+					<div class="height10"></div>
+					<div class="label100">设备类型:</div>
+					<div class="href1"><a class="type-select">全部类型</a></div>
+										<div class="href1 "><a class="type-select">服务器</a></div>
+										<div class="href1"><a href="#">更多类型&gt;&gt;</a></div>
+					<div class="clear"></div>
+					<div class="label100">热门标签:</div>
+					<div class="href1"><a class="label-select">所有标签</a></div>
+										<div class="href1"><a class="label-select">可用于记录设备详细情况，比如CPU、内存、采购联系人等。可用于记录设备详细情况，比如CPU、内存、采购联系人等。</a></div>
+										<div class="clear"></div>
+					<div class="label100">己选择条件:</div>
+					<div class="href2"><a class="type-selected">全部类型</a></div>
+					<div class="href2"><a class="label-selected">所有标签</a></div>
+					<div class="recondi"><a class="clear-select">[清除所有条件]</a></div>
+					<div class="height10"></div>
+				</div>
+			</div>
+
+
+            <div class="record_title">
+                <div class="rdbuy"><span>关联设备</span></div>
+                <div class="rdip3"><span>工单主题</span></div>
+                <div class="rdrelati3"><span>类型</span></div>
+                <div class="rdrelati3"><span>创建人</span></div>
+                <div class="rdip3"><span>状态</span></div>
+                <div class="rdrelati3"><span>创建时间</span></div>
+            </div>
+
+            <div class="rightcon_mid" style="overflow: hidden; width: 1102px;">
+                {% for iteam in customer %}
+                <div class="record-list listli_1">
+                <div class="rdbuy">
+                    <span>
+                        <a title="点击审批该变更" href="/procedures/show_event_info/{{ iteam.id }}">{% if iteam.device %}{{ iteam.device }}{% endif %}</a>
+                    </span>
+                </div>
+                <div class="rdip3"><span><a title="点击处理该事件" href="/procedures/show_event_info/{{ iteam.id }}">{{ iteam.event_theme }}</a></span></div>
+                <div class="rdrelati3"><span>{{ iteam.event_type }}</span></div>
+                <div class="rdrelati3"><span>{{ iteam.event_create_people }}</span></div>
+                <div class="rdip3"><span>{{ iteam.event_flow }}</span></div>
+                <div class="rdrelati3"><span>{{ iteam.event_start_time|date:"Y-m-d H:i:s" }}</span></div>
+                </div>
+                {% endfor %}
+        </div>
+        <div class="rightcon_bottom"></div>
+        <div class="page">
+	        <div class="pageR">
+                <span>总记录<i>{{ get_change_num }}</i>条</span>
+                <span>共<i>{{ page_num }}</i>页</span>
+                {% if customer.has_previous %}
+                    <a href="?page={{ customer.previous_page_number }}" class="page_off">上页</a>
+                {% endif %}
+                {% for pg in customer.paginator.page_range %}
+                    {% if customer.number == pg %}
+                        <a href="?page={{ pg }}" class="page_on">{{ pg }}</a>
+                    {% else %}
+                        <a href="?page={{ pg }}" class="page_off">{{ pg }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if customer.has_next %}
+                    <a href="?page={{ customer.next_page_number }}" class="page_off">下页</a>
+                {% endif %}
+            </div>
+        </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+
+
+{% extends 'base.html' %}
+{% block left_nav %}
+    {% include 'monitor/left_nav.html' %}
+{% endblock %}
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>监控中心</span> <span>&gt;</span> <span>出口状态监控</span></div>
+    </div>
+
+
+    <!--右侧内容开始-->
+        <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+
+
+
+            <div class="rightcon_title">出口状态监控</div>
+
+            <div class="rightcon_mid" style="overflow: hidden; height:520px;width: 1102px;">
+                <div style="height:575px;width: 100%;margin:-55px 0px 0px 0px;">
+                    <iframe src="http://10.254.30.252:3000/dashboard/db/01-chu-kou-lian-lu-jian-ce?orgId=2&theme=light" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+            <div class="rightcon_bottom"></div>
+        </div>
+
+{% endblock %}

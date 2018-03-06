@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block left_nav %}
+    {% include 'procedure/left_nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>工单管理</span> <span>&gt;</span> <span>查看变更详情</span></div>
+    </div>
+
+    <!--右侧内容开始-->
+    <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+        <div class="record_title" id="record_title">
+        <div class="rdbuy"><span>变更编号</span></div>
+        <div class="rdrelati3"><span>变更类型</span></div>
+        <div class="rdrelati3"><span>创建时间</span></div>
+        <div class="rdrelati3"><span>创建人</span></div>
+        <div class="rdrelati3"><span>协助人员</span></div>
+        <div class="rdname"><span>变更主题</span></div>
+    </div>
+    <div class="rightcon_mid" style="overflow: hidden; width: 1102px;">
+        <div class="record-list listli_1">
+            <div class="rdbuy"><span>{{ get_change.id }}</span></div>
+            <div class="rdrelati3"><span>{{ get_change.change_type.name }}</span></div>
+            <div class="rdrelati3"><span>{{ get_change.create_time }}</span></div>
+            <div class="rdrelati3"><span>{{ get_change.create_people }}</span></div>
+            <div class="rdrelati3">
+                <span>
+                    {% for i in get_change.partner.all %}
+                        {{ i.name }}、
+                    {% endfor %}
+                </span>
+            </div>
+            <div class="rdname"><span><center>{{ get_change.change_theme }}</center></span></div>
+        </div>
+        <div class="window_hr"></div>
+        <ul>
+            <li class="li_title"><strong>变更目的：</strong></li>
+            <li class="li_content">
+                <pre>{{ get_change.change_target }}</pre>
+            </li>
+                <div class="window_hr"></div>
+            <li class="li_title"><strong>变更方案：</strong></li>
+            <li class="li_content">
+                <pre>{{ get_change.change_plan }}</pre>
+            </li>
+                <div class="window_hr"></div>
+            <li class="li_title"><strong>回退方案：</strong></li>
+            <li class="li_content"><pre>{{ get_change.change_back }}</pre></li>
+            <div class="window_hr"></div>
+            <li class="li_title"><strong>变更记录：</strong></li>
+            <li class="li_content">
+                <pre>{{ get_change.change_note }}</pre>
+            </li>
+        </ul>
+    </div>
+    <div class="rightcon_bottom"></div>
+    <div class="height10"></div>
+        <div id="record_title" class="record_title">
+            <table cellspacing="0" class="totable">
+                <thead>
+                    <tr>
+                        <th class="totd0"><span>审批时间</span></th>
+                        <th class="totd4"><span>审批人</span></th>
+                        <th class="totd5"><span>审批结果</span></th>
+                        <th class="totd6"><span>审批意见</span></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="rightcon_mid">
+        <div class="toarea listli_1">
+                <table cellspacing="0" class="totable">
+                    <tbody>
+                        {% for iteam in get_change_log %}
+                        <tr>
+                            <td class="totd0"><div>{{ iteam.log_time }}</div></td>
+                            <td class="totd4"><div>{{ iteam.persion }}</div></td>
+                            <td class="totd5"><div>
+                                {% if iteam.agree %}
+                                    同意
+                                {% else %}
+                                    不同意
+                                {% endif %}
+                            </div></td>
+                            <td class="totd6"><div>{{ iteam.opinion }}</div></td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+    <div class="rightcon_bottom"></div>
+    </div>
+{% endblock %}

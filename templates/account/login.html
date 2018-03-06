@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>欢迎登陆</title>
+    <link href="/static/css/login.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/static/script/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/script/login.js"></script>
+</head>
+<body>
+    <div id="login">
+        <div class="login_top">
+            <img src="/static/images/logo_03.gif" />
+        </div>
+        <div  class="login_box">
+            <div class="login_con">
+                <p class="lab"><b>欢迎登录</b></p>
+                <form method = 'post'>
+                    <p class="lab">
+                        <span class="text_bg">
+                            {{ uf.username }}
+                        </span>
+                    </p>
+                    <p class="lab">
+                        <span class="text_bg">
+                            {{ uf.password }}
+                        </span>
+                    </p>
+                    <p class="lab">
+               		    <span class="s1"><input name="3" type="submit" value="" class="login_b pointer" id="login_submit"/></span>
+                        <span class="s2"><a href="/account/login">忘记密码？</a></span>
+               	    </p>
+                    <span class="s2"><label style="color: red;">{{ error }}</label></span>
+                </form>
+            </div>
+            <div class="clearfloat"></div>
+            <p class="login_last">
+                版权所有：<a href="http://www.cernet.com" target="_blank">赛尔网络有限公司</a> | 技术支持：赛尔开发团队<br />
+            </p>
+
+        </div>
+    </div>
+
+
+</body>
+</html>

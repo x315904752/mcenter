@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block left_nav %}
+    {% include 'procedure/left_nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <!--右侧title开始-->
+    <div class="currtitle" style="width: 100%;position:fixed">
+        <div class="placing"><span>当前位置：</span><span>工单管理</span> <span>&gt;</span> <span>处理事件</span></div>
+    </div>
+
+    <!--右侧内容开始-->
+    <form method="POST">
+        <div class="edit_list" style="margin-left: 10px;margin-top: 50px;margin-bottom:50px;">
+            <div class="rightcon_title">基本信息</div>
+            <div class="rightcon_mid" style="overflow-y:hidden;">
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">变更编号：</span>
+                    <span class="left">{{ get_change.id }}</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">变更类型：</span>
+                    <span class="left">{{ get_change.change_type.name }}</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">创 建 人：</span>
+                    <span class="left">{{ get_change.create_people.name }}</span>
+                </p>
+            </div>
+            <div class="rightcon_bottom"></div>
+            <!--one-->
+
+
+            <div class="rightcon_title">变更详情</div>
+            <div class="rightcon_mid" style="overflow-y:hidden;">
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">事件主题：</span>
+                    <span class="left">{{ get_change.change_theme }}</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">变更目的：</span>
+                    <span class="left">{{ get_change.change_target }}</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">变更方案：</span>
+                    <span class="left">{{ get_change.change_plan }}</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">回退方案：</span>
+                    <span class="left">{{ get_change.change_back }}</span>
+                </p>
+                <p style="padding:5px 10px;">
+                    <span class="left" style="font-weight:bold;">变更记录：</span>
+                    <span class="left">{{ get_change.change_note }}</span>
+                </p>
+            </div>
+            <div class="rightcon_bottom"></div>
+
+
+            <div class="rightcon_title">审批信息</div>
+                <div class="rightcon_mid">
+                    <label class="label_more"><span class="red">*</span>是否同意：</label>
+                    <div class="left">{{ uf.agree }}</div>
+                    <div class="height10"></div>
+                    <label class="label_more"><span class="red">*</span>审批意见：</label>
+                    <div class="left">{{ uf.opinion }}</div>
+                    <div class="height10"></div>
+                </div>
+            <div class="rightcon_bottom"></div>
+            <div class="height10"></div>
+
+            <div class="height10"></div>
+            <div class="edit_submit">
+			    <div class="btn_green" style=""><a id="ping-save"><input class="spanL" style="border:none" type="submit" value="提交处理" /><span class="spanR"></span></a></div>
+			    <div style="" class="btn_cancel"><a href="javascript:history.go(-1)"><span class="spanL">取消返回</span><span class="spanR"></span></a></div>
+		    </div>
+        </div>
+    </form>
+{% endblock %}

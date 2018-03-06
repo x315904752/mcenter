@@ -1,0 +1,94 @@
+/**
+ * author :jiangfengs
+ * date :2012-9-21
+ * action:osa-tips
+ */
+.tips-window{
+	width: 561px;
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 4px solid #97C2E3;
+	margin: 10px auto;
+	overflow: hidden;
+	padding: 15px;
+	position:absolute;
+}
+.tips-window-title{
+	background: url("../images/tctitle.gif") repeat-x scroll 0 0 transparent;
+    height: 29px;
+    line-height: 29px;
+    width: 100%;
+}
+.tips-text{
+	display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 29px;
+    text-indent: 10px;
+}
+.tips-close{
+	background: url("../images/buttonall.jpg") no-repeat scroll -7px -308px transparent;
+    border: medium none;
+    cursor: pointer;
+    float: right;
+    height: 19px;
+    width: 29px;
+}
+.tips-close:hover{
+	background: url("../images/buttonall.jpg") no-repeat scroll 0 -336px transparent;
+    border: medium none;
+    cursor: pointer;
+    float: right;
+    height: 19px;
+    width: 29px;	
+}
+
+.tips-window-content{
+	font-size: 12px;
+    height: auto;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.tips-label-img{
+	background: url("../images/icon.gif") no-repeat scroll 0 -753px transparent;
+    float: left;
+    height: 42px;
+    margin: 10px;
+    width: 65px;
+}
+
+.tips-label-msg{
+	float: left;
+    height: 42px;
+    line-height: 42px;
+    margin: 10px;
+}
+.tips-clear{
+	clear: both;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+}
+.tips-right{
+	float:right;
+}
+.tips-btn{
+    border: medium none;
+    cursor: pointer;
+    height: 31px;
+    line-height: 31px;
+    margin-left: 8px;
+    text-align: center;
+    width: 60px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+#tips-btn-true{
+	background: url("../images/buttonall.jpg") no-repeat scroll 0 -4px transparent;
+    color: #FFFFFF;
+}
+#tips-btn-false{
+	background: url("../images/buttonall.jpg") no-repeat scroll -70px -4px transparent;
+    color: #2C4787;
+}
